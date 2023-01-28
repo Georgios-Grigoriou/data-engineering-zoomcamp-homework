@@ -232,3 +232,13 @@ Additionally, the execution plan shows that the disk image change is the modific
 Once again, Terraform prompts for approval of the execution plan before proceeding. Answer yes to execute the planned steps.
 
 As indicated by the execution plan, Terraform first destroyed the existing instance and then created a new one in its place. You can use terraform show again to see the new values associated with this instance.
+
+**Destroy Infrastructure**
+
+You have created and modified infrastructure using Terraform. You will now learn how to destroy your Terraform-managed infrastructure.
+
+Once you no longer need infrastructure, you might want to destroy it to reduce your security exposure and costs. For example, you may remove a production environment from service, or manage short-lived environments like build or testing systems. In addition to building and modifying infrastructure, Terraform can destroy or recreate the resources it manages.
+
+**Destroy**
+
+The terraform destroy command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
