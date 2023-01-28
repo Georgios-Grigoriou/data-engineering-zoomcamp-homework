@@ -190,15 +190,45 @@ Initialize the directory.
 - **terraform destroy**: Destroy Terraform Infrastructure
 
 
-Change Infrastructure
+## Change Infrastructure
+https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-change
 
-9min
-Terraform
-Terraform
-
-Add bookmark
 In the previous tutorial, you created your first infrastructure with Terraform: a VPC network. In this tutorial, you will modify your configuration, and learn how to apply changes to your Terraform projects.
 
 Infrastructure is continuously evolving, and Terraform was built to help manage resources over their lifecycle. When you update Terraform configurations, Terraform builds an execution plan that only modifies what is necessary to reach your desired state.
 
 When using Terraform in production, we recommend that you use a version control system to manage your configuration files, and store your state in a remote backend such as Terraform Cloud or Terraform Enterprise.
+
+## Create a new resource
+
+You can create new resources by adding them to your Terraform configuration and running *terraform apply to provision them.
+
+Add the following configuration for a Google compute instance resource to main.tf.
+
+## Modify configuration
+
+In addition to creating resources, Terraform can also make changes to those resources.
+
+Add a tags argument to your vm_instance resource block.
+
+The prefix ~ means that Terraform will update the resource in-place. You can apply this change now by responding yes, and Terraform will add the tags to your instance.
+
+**Introduce destructive changes**
+
+A destructive change is a change that requires the provider to replace the existing resource rather than updating it. This usually happens because the cloud provider does not support updating the resource in the way described by your configuration.
+
+Changing the disk image of your instance is one example of a destructive change. Edit the boot_disk block inside the vm_instance resource in your configuration file to change the image parameter as follows.
+
+*Tip: The below snippet is formatted as a diff to give you context about what in your configuration should change. Replace the content displayed in red with the content displayed in green (exclude the leading + and - signs).
+
+This modification changes the boot disk from a Debian 11 image to Google's Container-Optimized OS.
+
+Now run terraform apply again. Terraform will replace the instance because Google Cloud Platform does not support replacing the boot disk image on a running instance.
+
+The prefix -/+ means that Terraform will destroy and recreate the resource, rather than updating it in-place. Terraform and the GCP provider handle these details for you, and the execution plan reports what Terraform will do.
+
+Additionally, the execution plan shows that the disk image change is the modification that forced the instance replacement. Using this information, you can adjust your changes to possibly avoid destructive updates if they are not acceptable.
+
+Once again, Terraform prompts for approval of the execution plan before proceeding. Answer yes to execute the planned steps.
+
+As indicated by the execution plan, Terraform first destroyed the existing instance and then created a new one in its place. You can use terraform show again to see the new values associated with this instance.
