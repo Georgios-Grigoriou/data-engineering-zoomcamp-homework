@@ -57,3 +57,17 @@ To deploy infrastructure with Terraform:
 Terraform allows you to collaborate on your infrastructure with its remote state backends. When you use Terraform Cloud (free for up to five users), you can securely share your state with your teammates, provide a stable environment for Terraform to run in, and prevent race conditions when multiple people make configuration changes at once.
 
 You can also connect Terraform Cloud to version control systems (VCSs) like GitHub, GitLab, and others, allowing it to automatically propose infrastructure changes when you commit configuration changes to VCS. This lets you manage changes to your infrastructure through version control, as you would with application code.
+
+
+**Install Terraform**
+
+Follow the instruction here:
+https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli
+
+**Quick start tutorial**
+
+Now that you've installed Terraform, you can provision an NGINX server[https://www.nginx.com/resources/glossary/nginx/] in less than a minute using Docker on Mac, Windows, or Linux. You can also follow the rest of this tutorial in your web browser.
+
+Click on the tab(s) below relevant to your operating system.
+
+
