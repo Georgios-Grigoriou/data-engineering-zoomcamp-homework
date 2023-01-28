@@ -1,4 +1,4 @@
-**Infrastructure as Code**
+**Infrastructure as Code with GCP**
 
 Source: https://developer.hashicorp.com/terraform/tutorials/gcp-get-started, https://www.terraform.io/
 
