@@ -96,3 +96,41 @@ Verify the existence of the NGINX container by visiting localhost:8000 in your w
 
 To stop the container, run terraform destroy.
    -terraform destroy
+
+### Run Google Cloud Platform
+https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build
+
+With Terraform installed, you are ready to create some infrastructure.
+
+You will build infrastructure on Google Cloud Platform (GCP) for this tutorial, but Terraform can manage a wide variety of resources using providers. You can find more examples in the use cases section.
+
+As you follow these tutorials, you will use Terraform to provision, update, and destroy a simple set of infrastructure using the sample configuration provided. The sample configuration provisions a network and a Linux virtual machine. You will also learn about remote backends, input and output variables, and how to configure resource dependencies. These are the building blocks for more complex configurations.
+
+
+Set up GCP
+
+After creating your GCP account, create or modify the following resources to enable Terraform to provision your infrastructure:
+
+**A GCP Project:** GCP organizes resources into projects. Create one now in the GCP console and make note of the project ID. You can see a list of your projects in the cloud resource manager.
+
+**Google Compute Engine:** Enable Google Compute Engine for your project in the GCP console. Make sure to select the project you are using to follow this tutorial and click the "Enable" button.
+
+**A GCP service account key:** Create a service account key to enable Terraform to access your GCP account. When creating the key, use the following settings:
+
+- Select the project you created in the previous step.
+- Click "Create Service Account".
+- Give it any name you like and click "Create".
+- For the Role, choose "Project -> Editor", then click "Continue".
+- Skip granting additional users access, and click "Done".
+- After you create your service account, download your service account key.
+- Select your service account from the list.
+- Select the "Keys" tab.
+- In the drop down menu, select "Create new key".
+- Leave the "Key Type" as JSON.
+- Click "Create" to create the key and save the key file to your system.
+
+**Write configuration**
+
+**The set of files used to describe infrastructure in Terraform is known as a Terraform configuration**. You will now write your first configuration to create a network.
+
+Each Terraform configuration must be in its own working directory. Create a directory for your configuration.
