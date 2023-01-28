@@ -134,3 +134,31 @@ After creating your GCP account, create or modify the following resources to ena
 **The set of files used to describe infrastructure in Terraform is known as a Terraform configuration**. You will now write your first configuration to create a network.
 
 Each Terraform configuration must be in its own working directory. Create a directory for your configuration.
+
+**Terraform Block**
+
+The terraform {} block contains Terraform settings, including the required providers Terraform will use to provision your infrastructure. For each provider, the source attribute defines an optional hostname, a namespace, and the provider type. Terraform installs providers from the Terraform Registry by default. In this example configuration, the google provider's source is defined as hashicorp/google, which is shorthand for registry.terraform.io/hashicorp/google.
+
+You can also define a version constraint for each provider in the required_providers block. The version attribute is optional, but we recommend using it to enforce the provider version. Without it, Terraform will always use the latest version of the provider, which may introduce breaking changes.
+
+To learn more, reference the provider source documentation.
+
+Providers
+
+The provider block configures the specified provider, in this case google. A provider is a plugin that Terraform uses to create and manage your resources. You can define multiple provider blocks in a Terraform configuration to manage resources from different providers.
+
+**Resource**
+
+Use resource blocks to define components of your infrastructure. A resource might be a physical component such as a server, or it can be a logical resource such as a Heroku application.
+
+Resource blocks have two strings before the block: the resource type and the resource name. In this example, the resource type is google_compute_network and the name is vpc_network. The prefix of the type maps to the name of the provider. In the example configuration, Terraform manages the google_compute_network resource with the google provider. Together, the resource type and resource name form a unique ID for the resource. For example, the ID for your network is google_compute_network.vpc_network.
+
+Resource blocks contain arguments which you use to configure the resource. Arguments can include things like machine sizes, disk image names, or VPC IDs. The Terraform Registry GCP documentation page documents the required and optional arguments for each GCP resource. For example, you can read the google_compute_network documentation to view the resource's supported arguments and available attributes.
+
+The GCP provider documents supported resources, including google_compute_network and its supported arguments.
+
+**Initialize the directory**
+
+When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory with terraform init. This step downloads the providers defined in the configuration.
+
+Initialize the directory.
