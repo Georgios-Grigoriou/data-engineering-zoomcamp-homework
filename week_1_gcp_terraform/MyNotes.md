@@ -81,41 +81,18 @@ Navigate into the working directory.
 cd learn-terraform-docker-container
 
 
-In the working directory, create a file called main.tf and paste the following Terraform configuration into it.
+In the working directory, create a file called main.tf and paste the following Terraform configuration into it from the file below:
 
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 2.13.0"
-    }
-  }
-}
-
-provider "docker" {}
-
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = false
-}
-
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
-  name  = "tutorial"
-  ports {
-    internal = 80
-    external = 8000
-  }
-}
+  https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/install-cli
 
 Initialize the project, which downloads a plugin called a provider that lets Terraform interact with Docker.
-    terraform init
+   -terraform init
 
 Provision the NGINX server container with apply. When Terraform asks you to confirm type yes and press ENTER.
-    terraform apply
+   -terraform apply
 
 Verify the existence of the NGINX container by visiting localhost:8000 in your web browser or running docker ps to see the container.
-    docker ps
+   -docker ps
 
 To stop the container, run terraform destroy.
-    terraform destroy
+   -terraform destroy
