@@ -267,3 +267,56 @@ You now have enough Terraform knowledge to create useful configurations, but the
 **Define input variables**
 
 Working in your learn-terraform-gcp directory, create a new file called variables.tf with the following variable definitions.
+
+**Use variables in configuration**
+
+Next, update the GCP provider configuration in main.tf to use these new variables.
+
+Variables are referenced with the var. prefix.
+
+**Query Data with Output Variables**
+
+Terraform
+
+In the previous tutorial, you used input variables to parameterize your Terraform configuration. In this tutorial, you will use output values to organize data to be easily queried and displayed to the Terraform user.
+
+When building complex infrastructure, Terraform stores hundreds or thousands of attribute values for all your resources. As a user of Terraform, you may only be interested in a few values of importance. Outputs designate which data to display. This data is outputted when apply is called, and can be queried using the terraform output command.
+
+**Define outputs**
+https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-outputs
+
+Define an output for the IP address of the instance that Terraform provisions. Create a file called outputs.tf with the following contents:
+
+output "ip" {
+  value = google_compute_instance.vm_instance.network_interface.0.network_ip
+}
+
+This defines an output variable named "ip". The name of the variable must conform to Terraform variable naming conventions if it is to be used as an input to other modules. The value field specifies the value, the network_ip of the first network interface attribute of the compute instance.
+
+Multiple output blocks can be defined to specify multiple output variables.
+
+**Inspect outputs**
+
+You must apply this configuration before you can use these output values. Apply your configuration now. Respond to the confirmation prompt with yes.
+
+Next steps
+
+That concludes the getting started tutorials for Terraform. Hopefully you're now able to not only see what Terraform is useful for, but you're also able to put this knowledge to use to improve building your own infrastructure.
+
+For more hands-on experience with the Terraform configuration language, or to learn more of the building blocks of Terraform, review the tutorials below.
+
+Configuration Language - Get more familiar with variables, outputs, dependencies, meta-arguments, and other language features to write more sophisticated Terraform configurations.
+
+- Modules - Organize and re-use Terraform configuration with modules.
+
+- Provision - Use Packer or Cloud-init to automatically provision SSH keys and a web server onto a Linux VM created by Terraform in AWS.
+
+- Import - Import existing infrastructure into Terraform.
+
+To read more about available configuration options, explore the Terraform documentation.
+
+Although Terraform Cloud can act as a standard remote backend to support Terraform runs on local machines, it works even better as a remote run environment. It supports two main workflows for performing Terraform runs:
+
+A VCS-driven workflow, in which it automatically queues plans whenever changes are committed to your configuration's VCS repo.
+An API-driven workflow, in which a CI pipeline or other automated tool can upload configurations directly.
+For a hands-on introduction to the Terraform Cloud VCS-driven workflow, follow the Terraform Cloud getting started tutorials. Terraform Cloud also offers commercial solutions which include team permission management, policy enforcement, agents, and more.
