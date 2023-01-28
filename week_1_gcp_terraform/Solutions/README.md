@@ -1,18 +1,26 @@
-## Local Setup for Terraform and GCP
+### Concepts
+* [Terraform_overview](../1_terraform_overview.md)
+* [Audio](https://drive.google.com/file/d/1IqMRDwJV-m0v9_le_i2HA_UbM_sIWgWx/view?usp=sharing)
 
-### Pre-Requisites
-1. Terraform client installation: https://www.terraform.io/downloads
-2. Cloud Provider account: https://console.cloud.google.com/ 
+### Execution
 
-### Terraform Concepts
-[Terraform Overview](1_terraform_overview.md)
+```shell
+# Refresh service-account's auth-token for this session
+gcloud auth application-default login
 
-### GCP setup
+# Initialize state file (.tfstate)
+terraform init
 
-1. [Setup for First-time](2_gcp_overview.md#initial-setup)
-    * [Only for Windows](windows.md) - Steps 4 & 5
-2. [IAM / Access specific to this course](2_gcp_overview.md#setup-for-access)
+# Check changes to new infra plan
+terraform plan -var="project=<your-gcp-project-id>"
+```
 
-### Terraform Workshop for GCP Infra
-Your setup is ready!
-Now head to the [terraform](terraform) directory, and perform the execution steps to create your infrastructure.
+```shell
+# Create new infra
+terraform apply -var="project=<your-gcp-project-id>"
+```
+
+```shell
+# Delete infra after your work, to avoid costs on any running services
+terraform destroy
+```
