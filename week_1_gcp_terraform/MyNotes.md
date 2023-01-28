@@ -181,9 +181,9 @@ Initialize the directory.
 *In this example, the resource type is google_compute_network and the name is vpc_network. The prefix of the type maps to the name of the provider. In the example configuration, Terraform manages the google_compute_network resource with the google provider. Together, the resource type and resource name form a unique ID for the resource. For example, the ID for your network is google_compute_network.vpc_network.
 - Resource blocks contain arguments which you use to configure the resource. Arguments can include things like machine sizes, disk image names, or VPC IDs. The Terraform Registry GCP documentation page documents the required and optional arguments for each GCP resource. For example, you can read the google_compute_network documentation to view the resource's supported arguments and available attributes. The GCP provider documents supported resources, including google_compute_network and its supported arguments.
 
-**terraform init**:Initialize Directory
-**terraform apply**:Create infrastructure
-**terraform fmt**: Format configuration
-**terraform state**: Validate the configuration
-**terraform show**:Inspect the current state using t
-**terraform destroy**: Destroy Terraform Infrastructure
+- **terraform init**:Initialize Directory
+- **terraform apply**:Create infrastructure
+- **terraform fmt**: Format configuration
+- **terraform state**: Validate the configuration
+- **terraform show**:Inspect the current state using t
+- **terraform destroy**: Destroy Terraform Infrastructure
