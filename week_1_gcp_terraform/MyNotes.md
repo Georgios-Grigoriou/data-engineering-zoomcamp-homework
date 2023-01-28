@@ -242,3 +242,28 @@ Once you no longer need infrastructure, you might want to destroy it to reduce y
 **Destroy**
 
 The terraform destroy command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
+
+**Define Input Variables**
+
+Tip: Terraform loads all files ending in .tf in the working directory, so you can name your configuration files however you choose. We recommend defining variables in their own file to make your configuration easier to organize and understand.
+
+
+  variable "project" { }
+
+  variable "credentials_file" { }
+
+  variable "region" {
+      default = "us-central1"
+    }
+
+variable "zone" {
+  default = "us-central1-c"
+}
+
+This file defines four variables within your Terraform configuration. The project and credentials_file variables have an empty block: { }. The region and zone variables set defaults. If a default value is set, the variable is optional. Otherwise, the variable is required. If you run terraform plan now, Terraform will prompt you for the values for project and credentials_file.
+
+You now have enough Terraform knowledge to create useful configurations, but the examples so far have used hard-coded values. Terraform configurations can include variables to make your configuration more dynamic and flexible.
+
+**Define input variables**
+
+Working in your learn-terraform-gcp directory, create a new file called variables.tf with the following variable definitions.
