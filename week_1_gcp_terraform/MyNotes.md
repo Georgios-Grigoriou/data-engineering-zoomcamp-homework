@@ -1,15 +1,17 @@
 **Infrastructure as Code**
+Source: https://www.terraform.io/
 
 Infrastructure as code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface. 
 
 IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
 
 **What is Terraform?**
-https://www.terraform.io/
 
 Terraform is HashiCorp's infrastructure as code tool. 
 
 It lets you define resources and infrastructure in **human-readable, declarative configuration files**, and manages your infrastructure's lifecycle. 
+
+**What are the advantages of using Terraform?**
 
 Using Terraform has several advantages over manually managing your infrastructure:
 
