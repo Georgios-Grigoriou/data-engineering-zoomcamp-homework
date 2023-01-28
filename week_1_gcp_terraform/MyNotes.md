@@ -70,4 +70,52 @@ Now that you've installed Terraform, you can provision an NGINX server[https://w
 
 Click on the tab(s) below relevant to your operating system.
 
+After you install Terraform and Docker on your local machine, start Docker Desktop.
 
+  open -a Docker
+
+Create a directory 
+mkdir learn-terraform-docker-container
+
+Navigate into the working directory.
+cd learn-terraform-docker-container
+
+
+In the working directory, create a file called main.tf and paste the following Terraform configuration into it.
+
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.13.0"
+    }
+  }
+}
+
+provider "docker" {}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
+  name  = "tutorial"
+  ports {
+    internal = 80
+    external = 8000
+  }
+}
+
+Initialize the project, which downloads a plugin called a provider that lets Terraform interact with Docker.
+    terraform init
+
+Provision the NGINX server container with apply. When Terraform asks you to confirm type yes and press ENTER.
+    terraform apply
+
+Verify the existence of the NGINX container by visiting localhost:8000 in your web browser or running docker ps to see the container.
+    docker ps
+
+To stop the container, run terraform destroy.
+    terraform destroy
