@@ -188,3 +188,17 @@ Initialize the directory.
 - **terraform state**: Validate the configuration
 - **terraform show**:Inspect the current state using t
 - **terraform destroy**: Destroy Terraform Infrastructure
+
+
+Change Infrastructure
+
+9min
+Terraform
+Terraform
+
+Add bookmark
+In the previous tutorial, you created your first infrastructure with Terraform: a VPC network. In this tutorial, you will modify your configuration, and learn how to apply changes to your Terraform projects.
+
+Infrastructure is continuously evolving, and Terraform was built to help manage resources over their lifecycle. When you update Terraform configurations, Terraform builds an execution plan that only modifies what is necessary to reach your desired state.
+
+When using Terraform in production, we recommend that you use a version control system to manage your configuration files, and store your state in a remote backend such as Terraform Cloud or Terraform Enterprise.
