@@ -299,24 +299,26 @@ Multiple output blocks can be defined to specify multiple output variables.
 
 You must apply this configuration before you can use these output values. Apply your configuration now. Respond to the confirmation prompt with yes.
 
-Next steps
+# **Next steps**
 
 That concludes the getting started tutorials for Terraform. Hopefully you're now able to not only see what Terraform is useful for, but you're also able to put this knowledge to use to improve building your own infrastructure.
 
 For more hands-on experience with the Terraform configuration language, or to learn more of the building blocks of Terraform, review the tutorials below.
 
-Configuration Language - Get more familiar with variables, outputs, dependencies, meta-arguments, and other language features to write more sophisticated Terraform configurations.
+Configuration Language - Get more familiar with variables, outputs, dependencies, meta-arguments, and other language features to write more sophisticated Terraform configurations. https://developer.hashicorp.com/terraform/tutorials/configuration-language
 
-- Modules - Organize and re-use Terraform configuration with modules.
+- Modules - Organize and re-use Terraform configuration with modules. https://developer.hashicorp.com/terraform/tutorials/modules/module
 
-- Provision - Use Packer or Cloud-init to automatically provision SSH keys and a web server onto a Linux VM created by Terraform in AWS.
+- Provision - Use Packer or Cloud-init to automatically provision SSH keys and a web server onto a Linux VM created by Terraform in AWS. https://developer.hashicorp.com/terraform/tutorials/provision
 
-- Import - Import existing infrastructure into Terraform.
+- Import - Import existing infrastructure into Terraform. https://developer.hashicorp.com/terraform/tutorials/state/state-import
 
-To read more about available configuration options, explore the Terraform documentation.
+To read more about available configuration options, explore the Terraform documentation. 
 
 Although Terraform Cloud can act as a standard remote backend to support Terraform runs on local machines, it works even better as a remote run environment. It supports two main workflows for performing Terraform runs:
 
 A VCS-driven workflow, in which it automatically queues plans whenever changes are committed to your configuration's VCS repo.
 An API-driven workflow, in which a CI pipeline or other automated tool can upload configurations directly.
 For a hands-on introduction to the Terraform Cloud VCS-driven workflow, follow the Terraform Cloud getting started tutorials. Terraform Cloud also offers commercial solutions which include team permission management, policy enforcement, agents, and more.
+
+Terraform Hashicorp exam certificiation https://developer.hashicorp.com/terraform/tutorials/certification/associate-review
