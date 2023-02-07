@@ -20,7 +20,7 @@ def write_bq(df: pd.DataFrame) -> None:
 
     df.to_gbq(
         destination_table="dezoomcamp.rides",
-        project_id="braided-case-375422",
+        project_id="<project id>",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=500_000,
         if_exists="append"
