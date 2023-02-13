@@ -13,6 +13,25 @@ OPTIONS (
 CREATE OR REPLACE TABLE `braided-case-375422.dezoomcamp.fhv_nonpartitioned_trip_data`
 AS SELECT * FROM `braided-case-375422.dezoomcamp.fhv_trip_data`;
 
+Question 1
+
+-- Count of fhv trips
+SELECT count(*)
+FROM `braided-case-375422.dezoomcamp.fhv_trip_data`
+WHERE DATE(pickup_datetime) BETWEEN "2019-01-01" AND "2019-12-31";
+
+Or
+
+-- Count of fhv trips
+SELECT count(*) FROM `braided-case-375422.dezoomcamp.fhv_nonpartitioned_trip_data`;
+We get the result of 43,244,696
+
+
+Question 3 
+
+SELECT count(1) FROM `braided-case-375422.dezoomcamp.fhv_nonpartitioned_trip_data`
+WHERE PUlocationID is NULL and DOlocationID is NULL;
+
 Question 5 SQL
 
 -- Create partition table
