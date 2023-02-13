@@ -26,6 +26,12 @@ Or
 SELECT count(*) FROM `braided-case-375422.dezoomcamp.fhv_nonpartitioned_trip_data`;
 We get the result of 43,244,696
 
+Question 2
+
+SELECT COUNT(DISTINCT(Affiliated_base_number)) FROM `<project id>.dezoomcamp.fhv_trip_data`;
+
+SELECT COUNT(DISTINCT(Affiliated_base_number)) FROM `<project id>.dezoomcamp.fhv_nonpartitioned_trip_data`;
+
 
 Question 3 
 
